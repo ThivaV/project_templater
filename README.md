@@ -8,4 +8,4 @@
     - It will ask for `Enter the project name:`
     - It will ask for `Enter the project path:`
 
-![Project structure]('./img/structure.png')
+![Project structure](https://github.com/ThivaV/project_templater/blob/main/img/structure.png)

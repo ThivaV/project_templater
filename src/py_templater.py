@@ -19,17 +19,19 @@ if __name__ == "__main__":
         f'src/{project_name}/constants/__init__.py',
         '.env',
         'config/config.yaml',
+        'params.yaml'
         'dvc.yaml',
         'requirements.txt',
         'requirements_local.txt',
         'setup.py',
         'app.py',
+        'main.py',
         f'notebooks/{project_name}.ipynb',
         'data/master_data/.gitkeep',
         'data/processed_data/.gitkeep',
         'models/__init__.py',
         'scripts/.gitkeep',
-        'templates/index.html'
+        'templates/index.html',
     ]
     
     for file in files:

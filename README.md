@@ -7,3 +7,5 @@
 - Step 2
     - It will ask for `Enter the project name:`
     - It will ask for `Enter the project path:`
+
+![Project structure]('./img/structure.png')

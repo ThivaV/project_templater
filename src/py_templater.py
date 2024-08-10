@@ -7,8 +7,12 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 if __name__ == "__main__":
     project_name = input('Enter the project name: ')
     project_path = input('Enter the project path: ')
+
+    proj_opt = '\nSelect the project structre:\n\t1=For master project structure\n\t2=For minimal project structre\n\t3=For cookbooks\nEnter the number:'
+    project_opt = input(proj_opt)
     
-    files = [
+    # master project structure
+    opt_1 = [
         '.github/workflows/.gitkeep',
         f'src/{project_name}/__init__.py',
         f'src/{project_name}/utils/__init__.py',
@@ -30,10 +34,54 @@ if __name__ == "__main__":
         f'notebooks/{project_name}.ipynb',
         'data/master_data/.gitkeep',
         'data/processed_data/.gitkeep',
-        'models/__init__.py',
+        'docs/img/.gitkeep',
+        'docs/doc/.gitkeep',
+        'models/.gitkeep',
         'scripts/.gitkeep',
         'templates/index.html',
     ]
+
+    # minimal project structre
+    opt_2 = [
+        '.github/workflows/.gitkeep',
+        '.env',
+        'requirements.txt',
+        'requirements_local.txt',
+        'setup.py',
+        'app.py',
+        'main.py',
+        f'notebooks/{project_name}.ipynb',
+        'data/master_data/.gitkeep',
+        'data/processed_data/.gitkeep',
+        'docs/img/.gitkeep',
+        'docs/doc/.gitkeep',
+        'models/.gitkeep',
+        'scripts/.gitkeep',
+        f'src/{project_name}/__init__.py',
+    ]
+
+    # cookbooks
+    opt_3 = [
+        '.github/workflows/.gitkeep',
+        'data/master_data/.gitkeep',
+        'data/processed_data/.gitkeep',
+        'models/.gitkeep',
+        f'notebooks/{project_name}.ipynb',
+        'requirements_local.txt',
+        'scripts/.gitkeep',
+        '.env',
+        'docs/img/.gitkeep',
+        'docs/doc/.gitkeep'
+    ]
+
+    if project_opt=='1':
+        files=opt_1
+    elif project_opt=='2':
+        files=opt_2
+    elif project_opt=='3':
+        files=opt_3
+    else:
+        files=opt_2
     
     for file in files:
         file_path = Path(file)

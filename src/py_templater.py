@@ -82,6 +82,8 @@ if __name__ == "__main__":
         files=opt_3
     else:
         files=opt_2
+
+    local_requirements_packages = ['ipykernel', 'ipywidgets', 'tqdm', 'pandas', 'numpy', 'matplotlib', 'python-dotenv', 'python-box']
     
     for file in files:
         file_path = Path(file)
@@ -95,7 +97,13 @@ if __name__ == "__main__":
         
         if (not os.path.exists(file_path)) or (os.path.getsize(file_path) == 0):
             with open(file_path, 'w') as f:
-                logging.info(f'creating empty file: {file_path}')
+                if file_name == 'requirements_local.txt':
+                    for package in local_requirements_packages:
+                        f.write(package + '\n')
+                    logging.info(f'creating file with items: {file_path}')
+                else:
+                    logging.info(f'creating empty file: {file_path}')
+
                 pass
         else:
             logging.info(f'{file_name} is already exists')

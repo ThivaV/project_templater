@@ -8,7 +8,7 @@ if __name__ == "__main__":
     project_name = input('Enter the project name: ')
     project_path = input('Enter the project path: ')
 
-    proj_opt = '\nSelect the project structre:\n\t1=For master project structure\n\t2=For minimal project structre\n\t3=For cookbooks\nEnter the number:'
+    proj_opt = '\nSelect the project structre:\n\t1=For master project structure\n\t2=For minimal project structre\n\t3=For cookbooks\n\t4=For general\nEnter the number:'
     project_opt = input(proj_opt)
     
     # master project structure
@@ -74,12 +74,31 @@ if __name__ == "__main__":
         'docs/doc/.gitkeep'
     ]
 
+    # general
+    opt_4 = [
+        '.github/workflows/.gitkeep',
+        '.env',
+        'requirements.txt',
+        'requirements_local.txt',
+        'app.py',
+        'notebooks/.gitkeep',
+        'data/master_data/.gitkeep',
+        'data/processed_data/.gitkeep',
+        'docs/img/.gitkeep',
+        'docs/doc/.gitkeep',
+        'models/.gitkeep',
+        'scripts/.gitkeep',
+        'src/__init__.py',
+    ]
+
     if project_opt=='1':
         files=opt_1
     elif project_opt=='2':
         files=opt_2
     elif project_opt=='3':
         files=opt_3
+    elif project_opt=='4':
+        files=opt_4
     else:
         files=opt_2
 

@@ -8,7 +8,7 @@ if __name__ == "__main__":
     project_name = input('Enter the project name: ')
     project_path = input('Enter the project path: ')
 
-    proj_opt = '\nSelect the project structre:\n\t1=For master project structure\n\t2=For minimal project structre\n\t3=For cookbooks\n\t4=For general\nEnter the number:'
+    proj_opt = '\nSelect the project structre:\n\t1=For master project structure\n\t2=For minimal project structre\n\t3=For cookbooks\n\t4=For general\n\t5=For kaggle competition\nEnter the number:'
     project_opt = input(proj_opt)
     
     # master project structure
@@ -91,6 +91,23 @@ if __name__ == "__main__":
         'src/__init__.py',
     ]
 
+    # kaggle
+    opt_5 = [
+        '.github/workflows/.gitkeep',
+        '.env',
+        'requirements.txt',
+        'requirements_local.txt',
+        'app.py',
+        'notebooks/.gitkeep',
+        'data/master_data/.gitkeep',
+        'data/processed_data/.gitkeep',
+        'docs/img/.gitkeep',
+        'docs/doc/.gitkeep',
+        'models/.gitkeep',
+        'scripts/.gitkeep',
+        'src/__init__.py',
+    ]
+
     if project_opt=='1':
         files=opt_1
     elif project_opt=='2':
@@ -99,6 +116,8 @@ if __name__ == "__main__":
         files=opt_3
     elif project_opt=='4':
         files=opt_4
+    elif project_opt=='5':
+        files=opt_5
     else:
         files=opt_2
 
@@ -117,8 +136,13 @@ if __name__ == "__main__":
         if (not os.path.exists(file_path)) or (os.path.getsize(file_path) == 0):
             with open(file_path, 'w') as f:
                 if file_name == 'requirements_local.txt':
+                    # add kagglehub for kaggle works
+                    if project_opt=='5':
+                        local_requirements_packages.append('kagglehub')
+
                     for package in local_requirements_packages:
                         f.write(package + '\n')
+
                     logging.info(f'creating file with items: {file_path}')
                 else:
                     logging.info(f'creating empty file: {file_path}')

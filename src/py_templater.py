@@ -121,7 +121,7 @@ if __name__ == "__main__":
     else:
         files=opt_2
 
-    local_requirements_packages = ['ipykernel', 'ipywidgets', 'tqdm', 'pandas', 'numpy', 'matplotlib', 'seaborn', 'python-dotenv', 'python-box']
+    local_requirements_packages = ['ipython', 'ipykernel', 'ipywidgets', 'tqdm', 'pandas', 'numpy', 'matplotlib', 'seaborn', 'python-dotenv', 'python-box']
     
     for file in files:
         file_path = Path(file)

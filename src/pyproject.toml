@@ -1,0 +1,49 @@
+# pyproject.toml
+# This file is used to configure the build system and project metadata for the Pricing-AI package.
+# To install the package, use: pip install .
+# For development, use: pip install -e ".[dev]"
+# For production, use: pip install . --no-dev
+# Ensure that you have a compatible Python version (>=3.11) and that you have the required build tools installed.
+
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "your_project_name"
+version = "0.1.0"
+description = "A short description of your project"
+authors = [
+    { name="Your Name", email="your.email@example.com" }
+]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent"
+]
+license = { file="LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pandas",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipython",
+    "ipykernel",
+    "ipywidgets",
+    "tqdm",
+    "python-dotenv",
+    "python-box",
+    "matplotlib",
+    "seaborn",
+    "python-dotenv",
+    "python-box"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/your_project_name"
+Documentation = "https://your_project_name.readthedocs.io"
+Repository = "https://github.com/yourusername/your_project_name"
+Issues = "https://github.com/yourusername/your_project_name/issues"
